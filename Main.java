@@ -81,51 +81,51 @@ class Main {
 
       //Boolean Logic AND Gate
       case 'C':
-      System.out.println("-------------------------------------------");
-      System.out.print("|");
-      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
-      //true OR true = true
-      System.out.print("|");
-      System.out.printf("%14s%14s","true|", "true|");
-      System.out.printf("%13s%s%n",true||true, "|");
-      //true OR false = true
-      System.out.print("|");
-      System.out.printf("%14s%14s","true|", "false|");
-      System.out.printf("%13s%s%n",true||false, "|");
-      //false OR true = true
-      System.out.print("|");
-      System.out.printf("%14s%14s","false|", "true|");
-      System.out.printf("%13s%s%n",false||true, "|");
-      //false OR false = false
-      System.out.print("|");
-      System.out.printf("%14s%14s","false|", "false|");
-      System.out.printf("%13s%s%n",false||false, "|");
-      System.out.println("-------------------------------------------");
-      break;
-      //Boolean Logic OR Gate
-      case 'D':
-      boolean[] c1 = {true,true,false,false};
-      boolean[] c2 = {true,false,true,false};
+      //Conditions
+      boolean c1[];
+      c1 = new boolean[4];
+      c1[0] = true;
+      c1[1] = true;
+      c1[2] = false;
+      c1[3] = false;
+      boolean c2[];
+      c2 = new boolean[4];
+      c2[0] = true;
+      c2[1] = false;
+      c2[2] = true;
+      c2[3] = false;
 
       System.out.println("-------------------------------------------");
       System.out.print("|");
       System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
-      //true AND true = true
+      //AND Table
+      for(int i=0;i<4;i++){
+        System.out.print("|");
+        System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]&&c2[i],"|");
+      }
+      System.out.println("-------------------------------------------");
+      break;
+      //Boolean Logic OR Gate
+      case 'D':
+      c1 = new boolean[4];
+      c1[0] = true;
+      c1[1] = true;
+      c1[2] = false;
+      c1[3] = false;
+      c2 = new boolean[4];
+      c2[0] = true;
+      c2[1] = false;
+      c2[2] = true;
+      c2[3] = false;
+
+      System.out.println("-------------------------------------------");
       System.out.print("|");
-      System.out.printf("%14s%14s","true|", "true|");
-      System.out.printf("%13s%s%n",true&&true, "|");
-      //true AND false = false
-      System.out.print("|");
-      System.out.printf("%14s%14s","true|", "false|");
-      System.out.printf("%13s%s%n",true&&false, "|");
-      //false AND true = false
-      System.out.print("|");
-      System.out.printf("%14s%14s","false|", "true|");
-      System.out.printf("%13s%s%n",false&&true, "|");
-      //false AND false = false
-      System.out.print("|");
-      System.out.printf("%14s%14s","false|", "false|");
-      System.out.printf("%13s%s%n",false&&false, "|");
+      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
+      //OR Table
+      for(int i=0;i<4;i++){
+        System.out.print("|");
+        System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]||c2[i],"|");
+      }
       System.out.println("-------------------------------------------");
       break;
       case 'E':
