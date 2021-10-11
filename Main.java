@@ -8,7 +8,6 @@ class Main {
     System.out.printf("%S%n   %s%n   %s%n   %s%n   %s%n   %s%n   %s%n","Choose what you would like to see", "A. Addition Table(0-110)", "B. Multiplication Table(1-12)", "C. Boolean Logic and Gate", "D. Boolean Logic or Gate", "E. Modulus Table", "F. Pascal's Triangle");
     char Choice1 = rip.next().charAt(0);
 
-    //Addition Table
     switch (Choice1){
       case 'A':
         for(int i = 0;i < 101;i += 10){
@@ -59,18 +58,21 @@ class Main {
             else if(i < 2&&y < 10){
               System.out.print(" ");
             }
-            else if(i == 1&&y == 3){
+            else if(i == 1&&y == 3){//misalignment
               System.out.print("  ");
             }
             else if(i < 5&&y > 8){
               System.out.print(" ");
             }
             
-            
-            System.out.printf(" %d",i * y);
+            int num = i * y;
+            System.out.printf(" %d",num);
+            int multi[i-1][y-1] = num;
           }
           System.out.println();
         }
+      break;
+      case 'C':
       break;
     }
   }
