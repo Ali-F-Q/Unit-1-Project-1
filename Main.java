@@ -9,6 +9,20 @@ class Main {
     char choice = rip.next().charAt(0);
     char Choice = Character.toUpperCase(choice);
 
+    //Boolean Truth Tables Conditions
+    boolean c1[];
+    c1 = new boolean[4];
+    c1[0] = true;
+    c1[1] = true;
+    c1[2] = false;
+    c1[3] = false;
+    boolean c2[];
+    c2 = new boolean[4];
+    c2[0] = true;
+    c2[1] = false;
+    c2[2] = true;
+    c2[3] = false;
+
     int[][] multi;
     multi = new int[12][12];
     switch (Choice){
@@ -61,12 +75,6 @@ class Main {
             else if(i < 3&&y < 5){
               System.out.print(" ");
             }
-            else if(i < 2&&y < 10){
-              System.out.print(" ");
-            }
-            else if(i == 1&&y == 3){//Does not work
-              System.out.print("  ");
-            }
             else if(i < 5&&y > 8){
               System.out.print(" ");
             }
@@ -81,19 +89,6 @@ class Main {
 
       //Boolean Logic AND Gate
       case 'C':
-      //Conditions
-      boolean c1[];
-      c1 = new boolean[4];
-      c1[0] = true;
-      c1[1] = true;
-      c1[2] = false;
-      c1[3] = false;
-      boolean c2[];
-      c2 = new boolean[4];
-      c2[0] = true;
-      c2[1] = false;
-      c2[2] = true;
-      c2[3] = false;
 
       System.out.println("-------------------------------------------");
       System.out.print("|");
@@ -105,22 +100,13 @@ class Main {
       }
       System.out.println("-------------------------------------------");
       break;
+
       //Boolean Logic OR Gate
       case 'D':
-      c1 = new boolean[4];
-      c1[0] = true;
-      c1[1] = true;
-      c1[2] = false;
-      c1[3] = false;
-      c2 = new boolean[4];
-      c2[0] = true;
-      c2[1] = false;
-      c2[2] = true;
-      c2[3] = false;
 
       System.out.println("-------------------------------------------");
       System.out.print("|");
-      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
+      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "OR|");
       //OR Table
       for(int i=0;i<4;i++){
         System.out.print("|");
@@ -128,8 +114,12 @@ class Main {
       }
       System.out.println("-------------------------------------------");
       break;
+
+      //Modulus Table
       case 'E':
       break;
+
+      //Pascal's Triangle
       case 'F':
       break;
     }
