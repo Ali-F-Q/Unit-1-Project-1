@@ -30,19 +30,7 @@ class Main {
       case 'A':
         for(int i = 0;i < 101;i += 10){
           for(int y = 0;y < 11;y++){
-
-            //Formatting
-            if(y < 10&&i < 10){
-              System.out.print(" ");
-            }
-            else if(i < 90){
-              System.out.print(" ");
-            }
-            else if(y < 10&&i == 90){
-              System.out.print(" ");
-            }
-
-            System.out.printf(" %d",i + y);
+            System.out.printf(" %4d",i + y);
           }
           System.out.println();
         }
@@ -52,36 +40,9 @@ class Main {
       case 'B':
         for(int i = 1;i < 13;i++){
           for(int y = 1;y < 13;y++){
-
-            //Formatting
-            if(i < 12&&i > 9&&y == 9){
-              System.out.print(" ");
-            }
-            else if(i < 10&&i > 4&&y < 2){
-              System.out.print(" ");
-            }
-            else if(i < 9&&i > 4&&y > 8){
-              System.out.print(" ");
-            }
-            else if(i == 9&&y < 12&&y > 8){
-              System.out.print(" ");
-            }
-            else if(i < 5&&y < 3){
-              System.out.print(" ");
-            }
-            else if(i < 4&&y < 4){
-              System.out.print(" ");
-            }
-            else if(i < 3&&y < 5){
-              System.out.print(" ");
-            }
-            else if(i < 5&&y > 8){
-              System.out.print(" ");
-            }
-            
             int num = i * y;
-            System.out.printf(" %d",num);
-            multi[i-1][y-1] = num;//2D array doesn't work
+            System.out.printf("%4d",num);
+            multi[i-1][y-1] = num;
           }
           System.out.println();
         }
@@ -90,37 +51,66 @@ class Main {
       //Boolean Logic AND Gate
       case 'C':
 
-      System.out.println("-------------------------------------------");
-      System.out.print("|");
-      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
-      //AND Table
-      for(int i=0;i<4;i++){
+        System.out.println("-------------------------------------------");
         System.out.print("|");
-        System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]&&c2[i],"|");
-      }
-      System.out.println("-------------------------------------------");
+        System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
+        //AND Table
+        for(int i=0;i<4;i++){
+          System.out.print("|");
+          System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]&&c2[i],"|");
+        }
+        System.out.println("-------------------------------------------");
       break;
 
       //Boolean Logic OR Gate
       case 'D':
 
-      System.out.println("-------------------------------------------");
-      System.out.print("|");
-      System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "OR|");
-      //OR Table
-      for(int i=0;i<4;i++){
+        System.out.println("-------------------------------------------");
         System.out.print("|");
-        System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]||c2[i],"|");
-      }
-      System.out.println("-------------------------------------------");
+        System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "OR|");
+        //OR Table
+        for(int i=0;i<4;i++){
+          System.out.print("|");
+          System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]||c2[i],"|");
+        }
+        System.out.println("-------------------------------------------");
       break;
 
       //Modulus Table
       case 'E':
+
+      System.out.print("  ");
+        for(int x = 1;x < 11;x++){
+          System.out.printf("%4d",x);
+        }
+        System.out.println();
+        for(int i = 1;i < 11;i++){
+          System.out.printf("%2d",i);
+          for(int y = 1;y < 11;y++){
+            int num = y%i;
+            System.out.printf("%4d",num);
+          }
+          System.out.println();
+        }
       break;
 
       //Pascal's Triangle
       case 'F':
+
+        System.out.print("Number of rows: ");
+        int rows = rip.nextInt();
+        int i = 0;
+
+        while (i < rows){
+          for (int x = rows - i;x > 0;x--){
+            System.out.print(" ");
+          }
+          for(int y = 0;y <= i;y++){
+            System.out.print("* ");
+          }
+          System.out.println();
+          i++;
+        }
       break;
     }
   }
