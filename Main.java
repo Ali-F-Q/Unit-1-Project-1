@@ -148,18 +148,38 @@ class Main {
       //Pascal's Triangle
       case 'F':
 
+        //Question
         System.out.print("Number of rows: ");
         int rows = rip.nextInt();
+
+        //Declarations
         int i = 0;
+        int[] pascal = new int[rows];
+        for(int z = 0;z < pascal.length;z++){
+          pascal[z] = 1;
+        }
+        int[] temp = new int[rows];
+        for(int z = 0;z < temp.length;z++){
+          temp[z] = 1;
+        }
 
         while (i < rows){
+          //Spacing
           for (int x = rows - i;x > 0;x--){
-            System.out.print(" ");
+            System.out.print("   ");// <--------------------------------------------------------------
           }
+
+          //Calculations
           for(int y = 0;y <= i;y++){
-            System.out.print("* ");
+            System.out.printf("%6d",pascal[y]);//%_d has to be twice the number of " "'s' in ^spacing^
+            if(i > 0&&y != 0){
+              pascal[y] = temp[y-1]+temp[y];
+            }
           }
           System.out.println();
+          for(int x = 0;x < pascal.length;x++){
+            temp[x] = pascal[x];
+          }
           i++;
         }
       break;
