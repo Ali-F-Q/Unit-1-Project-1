@@ -28,55 +28,105 @@ class Main {
     switch (Choice){
       // Addition Table
       case 'A':
+
+        System.out.print("|");
+        for(int x = 0;x < 65;x++){
+          System.out.print("-");
+        }
+        System.out.println("|");
         for(int i = 0;i < 101;i += 10){
+          System.out.print("|");
           for(int y = 0;y < 11;y++){
-            System.out.printf(" %4d",i + y);
+            System.out.printf(" %4d%s",i + y,"|");
           }
           System.out.println();
+          System.out.print("|");
+          for(int x = 0;x < 65;x++){
+            System.out.print("-");
+          }
+          System.out.printf("%s%n","|");
         }
       break;
 
       //Multiplication Table
       case 'B':
+
+        //Box
+        System.out.print("|");
+        for(int x = 0;x < 59;x++){
+            System.out.print("-");
+        }
+        System.out.print("|");
+        System.out.println("");
         for(int i = 1;i < 13;i++){
+          System.out.print("|");
           for(int y = 1;y < 13;y++){
             int num = i * y;
-            System.out.printf("%4d",num);
+            System.out.printf("%4d%s",num,"|");
             multi[i-1][y-1] = num;
           }
           System.out.println();
+          //Box
+          System.out.print("|");
+          for(int x = 0;x < 59;x++){
+            System.out.print("-");
+          }
+          System.out.printf("%s%n","|");
         }
       break;
 
       //Boolean Logic AND Gate
       case 'C':
 
-        System.out.println("-------------------------------------------");
+        //Box
         System.out.print("|");
-        System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "AND|");
+        for(int x=0;x<41;x++){
+          System.out.print("-");
+        }
+        System.out.println("|");
+        System.out.printf("%s%14s%14s%14s%n","|", "Condition 1|", "Condition 2|", "AND|");
         //AND Table
         for(int i=0;i<4;i++){
           System.out.print("|");
+          for(int x=0;x<41;x++){
+            System.out.print("-");
+          }
+          System.out.println("|");
+          System.out.print("|");
           System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]&&c2[i],"|");
         }
-        System.out.println("-------------------------------------------");
+        //Box
+        System.out.print("|");
+        for(int x=0;x<41;x++){
+          System.out.print("-");
+        }
+        System.out.println("|");
       break;
 
       //Boolean Logic OR Gate
       case 'D':
 
-        System.out.println("-------------------------------------------");
+        System.out.print("|");
+        for(int x=0;x<41;x++){
+          System.out.print("-");
+        }
+        System.out.println("|");
         System.out.print("|");
         System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "OR|");
         //OR Table
         for(int i=0;i<4;i++){
+          System.out.print("|");
+          for(int x=0;x<41;x++){
+            System.out.print("-");
+          }
+          System.out.println("|");
           System.out.print("|");
           System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]||c2[i],"|");
         }
         System.out.println("-------------------------------------------");
       break;
 
-      //Modulus Table
+      //Modulus Table---------------------------------------------------------
       case 'E':
 
       System.out.print("  ");
@@ -93,6 +143,7 @@ class Main {
           System.out.println();
         }
       break;
+      //Modulus Table---------------------------------------------------------
 
       //Pascal's Triangle
       case 'F':
