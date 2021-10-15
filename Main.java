@@ -1,31 +1,34 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 class Main {
+  public static final String ANSI_RESET = "\u001B[0m";
+  public static final String ANSI_RED = "\u001B[31m";
   public static void main(String[] args) {
     Scanner rip = new Scanner(System.in);
 
-    //Menu
-    System.out.printf("%S%n   %s%n   %s%n   %s%n   %s%n   %s%n   %s%n","Choose what you would like to see", "A. Addition Table(0-110)", "B. Multiplication Table(1-12)", "C. Boolean Logic AND Gate", "D. Boolean Logic OR Gate", "E. Modulus Table", "F. Pascal's Triangle");
-    char choice = rip.next().charAt(0);
-    char Choice = Character.toUpperCase(choice);
-
+    char Choice = 'A';
+    String exit;
+    int rows;
+    int columns;
     //Boolean Truth Tables Conditions
-    boolean c1[];
-    c1 = new boolean[4];
-    c1[0] = true;
-    c1[1] = true;
-    c1[2] = false;
-    c1[3] = false;
-    boolean c2[];
-    c2 = new boolean[4];
-    c2[0] = true;
-    c2[1] = false;
-    c2[2] = true;
-    c2[3] = false;
+    boolean[] c1 = {true, true, false, false};
+    boolean[] c2 = {true, false, true, false};
 
-    int[][] multi;
-    multi = new int[12][12];
+    while(Choice != 'G'){
+
+      //User Error
+      if(Choice != 'A'&&Choice != 'B'&&Choice != 'C'&&Choice != 'D'&&Choice != 'E'&&Choice != 'F'&&Choice != 'G'){
+        System.out.printf("%n%S%n","Please choose a valid option");
+      }
+
+    //Menu
+    System.out.printf("%n%S%n   %s%n   %s%n   %s%n   %s%n   %s%n   %s%n   %s%n","Menu", "A. Addition Table(0-110)", "B. Multiplication Table", "C. Boolean Logic AND Gate", "D. Boolean Logic OR Gate", "E. Modulus Table", "F. Pascal's Triangle", "G. Exit");
+    char choice = rip.next().charAt(0);
+    Choice = Character.toUpperCase(choice);
+
     switch (Choice){
+
       // Addition Table
       case 'A':
 
@@ -34,11 +37,15 @@ class Main {
           System.out.print("-");
         }
         System.out.println("|");
+
         for(int i = 0;i < 101;i += 10){
           System.out.print("|");
+
+          //Claculation
           for(int y = 0;y < 11;y++){
             System.out.printf(" %4d%s",i + y,"|");
           }
+
           System.out.println();
           System.out.print("|");
           for(int x = 0;x < 65;x++){
@@ -51,27 +58,45 @@ class Main {
       //Multiplication Table
       case 'B':
 
+        //Input for rows and columns
+        System.out.print("How many rows: ");
+        rows = rip.nextInt();
+        System.out.print("How many columns: ");
+        columns = rip.nextInt();
+        int[][] multi = new int[rows][columns];
+    
         //Box
+        System.out.println();
+        System.out.println("Multiplication Table");
         System.out.print("|");
-        for(int x = 0;x < 59;x++){
-            System.out.print("-");
+        for(int x = 0;x < columns*5-1;x++){
+          System.out.print("-");
         }
-        System.out.print("|");
-        System.out.println("");
-        for(int i = 1;i < 13;i++){
+        System.out.println("|");
+    
+        for(int i = 1;i < rows+1;i++){
           System.out.print("|");
-          for(int y = 1;y < 13;y++){
-            int num = i * y;
-            System.out.printf("%4d%s",num,"|");
-            multi[i-1][y-1] = num;
+
+          //Calculation
+          for(int y = 1;y < columns+1;y++){
+            multi[i-1][y-1] = i * y;
+            int sqrt = (int) Math.sqrt(multi[i-1][y-1]);
+
+            if(sqrt*sqrt == (int) multi[i-1][y-1]){
+            System.out.printf("%s%4s",ANSI_RED + multi[i-1][y-1] + ANSI_RESET,"|");
+            }
+            else{
+              System.out.printf("%-4d%s",multi[i-1][y-1],"|");
+            }
           }
-          System.out.println();
+
           //Box
+          System.out.println();
           System.out.print("|");
-          for(int x = 0;x < 59;x++){
+          for(int x = 0;x < columns*5-1;x++){
             System.out.print("-");
           }
-          System.out.printf("%s%n","|");
+          System.out.println("|");
         }
       break;
 
@@ -85,7 +110,8 @@ class Main {
         }
         System.out.println("|");
         System.out.printf("%s%14s%14s%14s%n","|", "Condition 1|", "Condition 2|", "AND|");
-        //AND Table
+
+        //Creating Table
         for(int i=0;i<4;i++){
           System.out.print("|");
           for(int x=0;x<41;x++){
@@ -93,8 +119,11 @@ class Main {
           }
           System.out.println("|");
           System.out.print("|");
+
+          //Calculations
           System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]&&c2[i],"|");
         }
+
         //Box
         System.out.print("|");
         for(int x=0;x<41;x++){
@@ -106,6 +135,7 @@ class Main {
       //Boolean Logic OR Gate
       case 'D':
 
+        //Box
         System.out.print("|");
         for(int x=0;x<41;x++){
           System.out.print("-");
@@ -113,7 +143,8 @@ class Main {
         System.out.println("|");
         System.out.print("|");
         System.out.printf("%14s%14s%14s%n","Condition 1|", "Condition 2|", "OR|");
-        //OR Table
+
+        //Creating Table
         for(int i=0;i<4;i++){
           System.out.print("|");
           for(int x=0;x<41;x++){
@@ -121,9 +152,17 @@ class Main {
           }
           System.out.println("|");
           System.out.print("|");
+
+          //Calculations
           System.out.printf("%13s%s%13s%s%13s%s%n",c1[i],"|",c2[i],"|",c1[i]||c2[i],"|");
         }
-        System.out.println("-------------------------------------------");
+
+        //Box
+        System.out.print("|");
+        for(int x=0;x<41;x++){
+          System.out.print("-");
+        }
+        System.out.println("|");
       break;
 
       //Modulus Table---------------------------------------------------------
@@ -150,7 +189,7 @@ class Main {
 
         //Question
         System.out.print("Number of rows: ");
-        int rows = rip.nextInt();
+        rows = rip.nextInt();
 
         //Declarations
         int i = 0;
@@ -163,10 +202,11 @@ class Main {
           temp[z] = 1;
         }
 
+        //Creating Triangle
         while (i < rows){
           //Spacing
           for (int x = rows - i;x > 0;x--){
-            System.out.print("   ");// <--------------------------------------------------------------
+            System.out.print("   ");
           }
 
           //Calculations
@@ -183,6 +223,7 @@ class Main {
           i++;
         }
       break;
+    }
     }
   }
 }
